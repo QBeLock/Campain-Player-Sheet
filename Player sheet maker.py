@@ -26,8 +26,9 @@ class zakladni_riadok(ABC):
     def get(self):
         pass
 
+    @abstractmethod
     def set(self, value):
-        self._data = value
+        pass
 
 class textovi_vstup(zakladni_riadok):
 
@@ -40,6 +41,9 @@ class textovi_vstup(zakladni_riadok):
 
     def get(self):
         return self._data.get()
+
+    def set(self, value):
+        self._data.set(value)
 
 
 
@@ -66,6 +70,10 @@ class session_choice_base(zakladni_riadok, ABC):
         for i in self.session:
             konvertovane.append(i.get())
         return konvertovane
+
+    def set(self, value):
+        for i in range(3):
+            self.session_input[i].set(value[i])
 
 
 class session_choice_bool(session_choice_base):
@@ -131,9 +139,10 @@ def save_as():
 def load():
     file_path = filedialog.askopenfilename(title="Load", filetypes=[("JSON", ('*.json')),("All files", "*.*")], defaultextension=".json")
     with open(file_path) as json_file:
-        json_dir = json.load(json_file)
+        json_dir = json.loads(json_file.read())
         for i in zakladni_riadok.riadky:
             i.set(json_dir[i.nazov])
+            print(i.nazov)
         json_file.close()
 
 load_btn = tk.Button(root, text="Load", command=load)
