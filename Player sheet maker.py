@@ -49,13 +49,10 @@ def CreateToolTip(widget, text):
 
 class zakladni_riadok(ABC):
     riadky = []
-    skupina = root
-    def __init__(self, nazov, tooltip, grid_velkost = 0, nova_skupina=False):
-        if nova_skupina:
-            zakladni_riadok.skupina = tk.Frame(root, bg="gray")
+    def __init__(self, nazov, tooltip, grid_velkost = 0,viska =0):
         zakladni_riadok.riadky.append(self)
         self.nazov = nazov
-        self.lbl = tk.Label(zakladni_riadok.skupina, text=nazov)
+        self.lbl = tk.Label(root, text=nazov)
         self.lbl.grid(row=len(zakladni_riadok.riadky) - 1, column=0, pady=(0,grid_velkost))
         CreateToolTip(self.lbl, tooltip)
         self._grid_velkost = grid_velkost
@@ -74,10 +71,10 @@ class zakladni_riadok(ABC):
 class textovi_vstup(zakladni_riadok):
 
 
-    def __init__(self, nazov, tooltip, grid_velkost = 0, nova_skupina=False):
-        super().__init__(nazov,tooltip,grid_velkost,nova_skupina)
+    def __init__(self, nazov, tooltip, grid_velkost = 0):
+        super().__init__(nazov,tooltip,grid_velkost)
         self._data = tk.StringVar()
-        self.okno = tk.Entry(zakladni_riadok.skupina, textvariable=self._data, width=50)
+        self.okno = tk.Entry(root, textvariable=self._data, width=50)
         self._init_end()
 
     def get(self):
@@ -94,12 +91,12 @@ class session_choice_base(zakladni_riadok, ABC):
     def create_session(self, session_id):
         pass
 
-    def __init__(self, nazov, tooltip, grid_velkost=0, nova_skupina=False):
-        super().__init__(nazov,tooltip,grid_velkost,nova_skupina)
+    def __init__(self, nazov, tooltip, grid_velkost=0):
+        super().__init__(nazov,tooltip,grid_velkost)
         self._data = []
         self.session = []
         self.session_input = []
-        self.okno = tk.Frame(zakladni_riadok.skupina)
+        self.okno = tk.Frame(root)
         for i in range(3):
             self._data.append(NULL)
             self.session_input.append(self.create_session(i))
@@ -129,7 +126,15 @@ class session_choice_int(session_choice_base):
         self.session.append(tk.IntVar())
         return tk.Entry(self.okno, textvariable=self.session[session_id], width=1)
 
-
+class rozdelovac(zakladni_riadok):
+    def __init__(self,tooltip = "", grid_velkost):
+        super().__init__("",tooltip,grid_velkost)
+        self.okno = tk.Label(root)
+        self._init_end()
+    def get(self):
+        return NULL
+    def set(self, value):
+        pass
 
 
 
@@ -137,9 +142,11 @@ class session_choice_int(session_choice_base):
 
 meno = textovi_vstup("Meno","Tvoje meno debil", 10)
 
-meno_postavi = textovi_vstup("Meno Postavi", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu",nova_skupina=True)
+postavi_sekcia = rozdelovac()
+meno_postavi = textovi_vstup("Meno Postavi", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu")
 podstatne_pre_postavu = textovi_vstup("Podstatne Pre Postavi","Načom tvojej postave záleží. niečo čo ked sa stane tak na to bude reagovať.",10)
 
+plot_sekcia = rozdelovac()
 plot_twist = textovi_vstup("Plot twist", "niečo vimislíš")
 session_choice_bool("Plot twist session", "kedi sa stane/ú tvoj(e) plot twisti. Každé okienko je session z lava do prava.")
 dalsie_plani = textovi_vstup("Ďalšie Pláni", "Rôzne eventi, situacie alebo miesta ktore sa mozu obiavit v kampani")
@@ -151,7 +158,8 @@ session_choice_bool("Major eventi", "Rovnako ako minor eventi ale tieto môžu z
 def konvertovat_data():
     konvertovane = {}
     for i in zakladni_riadok.riadky:
-        konvertovane.update({i.nazov: i.get()})
+        if i.get():
+            konvertovane.update({i.nazov: i.get()})
     return konvertovane
 
 
