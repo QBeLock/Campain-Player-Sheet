@@ -73,7 +73,7 @@ class session_choice_base(zakladni_riadok, ABC):
 
     def set(self, value):
         for i in range(3):
-            self.session_input[i].set(value[i])
+            self.session[i].set(value[i])
 
 
 class session_choice_bool(session_choice_base):
