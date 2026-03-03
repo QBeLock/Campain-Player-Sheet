@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d0b6926-2a55-467b-ab1d-e04c75385fbc" name="Changes" comment="UI">
+    <list default="true" id="1d0b6926-2a55-467b-ab1d-e04c75385fbc" name="Changes" comment="ach jaj">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player sheet maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player sheet maker.py" afterDir="false" />
     </list>
@@ -194,11 +194,20 @@
       <option name="project" value="LOCAL" />
       <updated>1772521593755</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ach jaj">
+      <option name="closed" value="true" />
+      <created>1772535653292</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772535653292</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI" />
+    <MESSAGE value="ach jaj" />
+    <option name="LAST_COMMIT_MESSAGE" value="ach jaj" />
   </component>
 </project>

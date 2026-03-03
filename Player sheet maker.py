@@ -98,7 +98,6 @@ session_choice_int("Minor eventi")
 session_choice_bool("Major eventi")
 
 
-pouzivani_peiecinok = ""
 
 def konvertovat_data():
     konvertovane = {}
@@ -106,18 +105,28 @@ def konvertovat_data():
         konvertovane.update({i.nazov: i.get()})
     return konvertovane
 
+
+file_path = ""
+
 def save():
-    if pouzivani_peiecinok == "":
+    if file_path == "":
         save_as()
     else:
-        with open(pouzivani_peiecinok, "w") as json_file:
+        with open(file_path, "w") as json_file:
             json_file.write(json.dumps(konvertovat_data()))
             json_file.close()
 
 def save_as():
-    file_path = filedialog.asksaveasfilename(title="Save as", filetypes=[("JSON", ('*.json'))], defaultextension=".json")
-    pouzivani_peiecinok = file_path
-    save()
+    try:
+        file_path = filedialog.asksaveasfilename(title="Save as", filetypes=[("JSON", ('*.json'))], defaultextension=".json")
+        with open(file_path, "w") as json_file:
+            json_file.write(json.dumps(konvertovat_data()))
+            json_file.close()
+    except FileNotFoundError:
+        pouzivani_subor = open(file_path, "w")
+    finally:
+        print(file_path)
+        zapisat_do_suboru()
 
 def load():
     file_path = filedialog.askopenfilename(title="Load", filetypes=[("JSON", ('*.json')),("All files", "*.*")], defaultextension=".json")
