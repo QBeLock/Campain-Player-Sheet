@@ -127,7 +127,7 @@ class session_choice_int(session_choice_base):
         return tk.Entry(self.okno, textvariable=self.session[session_id], width=1)
 
 class rozdelovac(zakladni_riadok):
-    def __init__(self,tooltip = "", grid_velkost):
+    def __init__(self,tooltip = "", grid_velkost=0):
         super().__init__("",tooltip,grid_velkost)
         self.okno = tk.Label(root)
         self._init_end()
@@ -142,11 +142,11 @@ class rozdelovac(zakladni_riadok):
 
 meno = textovi_vstup("Meno","Tvoje meno debil", 10)
 
-postavi_sekcia = rozdelovac()
+#postavi_sekcia = rozdelovac()
 meno_postavi = textovi_vstup("Meno Postavi", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu")
 podstatne_pre_postavu = textovi_vstup("Podstatne Pre Postavi","Načom tvojej postave záleží. niečo čo ked sa stane tak na to bude reagovať.",10)
 
-plot_sekcia = rozdelovac()
+#plot_sekcia = rozdelovac()
 plot_twist = textovi_vstup("Plot twist", "niečo vimislíš")
 session_choice_bool("Plot twist session", "kedi sa stane/ú tvoj(e) plot twisti. Každé okienko je session z lava do prava.")
 dalsie_plani = textovi_vstup("Ďalšie Pláni", "Rôzne eventi, situacie alebo miesta ktore sa mozu obiavit v kampani")
@@ -189,7 +189,10 @@ def load():
     with open(file_path) as json_file:
         json_dir = json.loads(json_file.read())
         for i in zakladni_riadok.riadky:
-            i.set(json_dir[i.nazov])
+            try:
+                i.set(json_dir[i.nazov])
+            except KeyError:
+                pass
         json_file.close()
         print(file_path)
 
