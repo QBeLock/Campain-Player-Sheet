@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d0b6926-2a55-467b-ab1d-e04c75385fbc" name="Changes" comment="rozdelovac">
+    <list default="true" id="1d0b6926-2a55-467b-ab1d-e04c75385fbc" name="Changes" comment="gunguje">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player sheet maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player sheet maker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/Analysis-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/PKG-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/Player sheet maker.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/Player sheet maker.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/warn-Player sheet maker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/warn-Player sheet maker.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Player sheet maker.exe" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Player sheet maker.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "QBeLock"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/QBeLock/Campain-Player-Sheet.git",
+    "accountId": "26de83ec-52a4-433e-aca2-a294a3ab527c"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -110,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772548105810</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="gunguje">
+      <option name="closed" value="true" />
+      <created>1772550539702</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1772550539702</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -121,6 +148,7 @@
     <MESSAGE value="uz funguje uplne" />
     <MESSAGE value="tooltip" />
     <MESSAGE value="rozdelovac" />
-    <option name="LAST_COMMIT_MESSAGE" value="rozdelovac" />
+    <MESSAGE value="gunguje" />
+    <option name="LAST_COMMIT_MESSAGE" value="gunguje" />
   </component>
 </project>

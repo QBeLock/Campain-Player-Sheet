@@ -3,6 +3,9 @@ import tkinter as tk
 from abc import ABC, abstractmethod
 from asyncio.windows_events import NULL
 from tkinter import filedialog
+from tkinter import font as tkFont
+
+from pefile import sizeof_type
 
 root = tk.Tk()
 root.title("Player sheet maker")
@@ -49,10 +52,11 @@ def CreateToolTip(widget, text):
 
 class zakladni_riadok(ABC):
     riadky = []
-    def __init__(self, nazov, tooltip, grid_velkost = 0,viska =0):
+    defauld_font = tkFont.Font(size=10)
+    def __init__(self, nazov, tooltip, grid_velkost = 0,font=defauld_font):
         zakladni_riadok.riadky.append(self)
         self.nazov = nazov
-        self.lbl = tk.Label(root, text=nazov)
+        self.lbl = tk.Label(root, text=nazov,font=font)
         self.lbl.grid(row=len(zakladni_riadok.riadky) - 1, column=0, pady=(0,grid_velkost))
         CreateToolTip(self.lbl, tooltip)
         self._grid_velkost = grid_velkost
@@ -127,9 +131,10 @@ class session_choice_int(session_choice_base):
         return tk.Entry(self.okno, textvariable=self.session[session_id], width=1)
 
 class rozdelovac(zakladni_riadok):
-    def __init__(self,tooltip = "", grid_velkost=0):
-        super().__init__("",tooltip,grid_velkost)
-        self.okno = tk.Label(root)
+    def __init__(self,velkost = 9,tooltip = "", grid_velkost=0):
+        velkost_font = tkFont.Font(size=velkost)
+        super().__init__(" .",tooltip,grid_velkost,font=velkost_font)
+        self.okno = tk.Label(root,text=" .", font=velkost_font)
         self._init_end()
     def get(self):
         return NULL
@@ -140,13 +145,13 @@ class rozdelovac(zakladni_riadok):
 
 
 
-meno = textovi_vstup("Meno","Tvoje meno debil", 10)
+meno = textovi_vstup("Meno","Tvoje meno debil")
 
-#postavi_sekcia = rozdelovac()
+postavi_sekcia = rozdelovac()
 meno_postavi = textovi_vstup("Meno Postavi", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu")
-podstatne_pre_postavu = textovi_vstup("Podstatne Pre Postavi","Načom tvojej postave záleží. niečo čo ked sa stane tak na to bude reagovať.",10)
+podstatne_pre_postavu = textovi_vstup("Podstatne Pre Postavi","Načom tvojej postave záleží. niečo čo ked sa stane tak na to bude reagovať.")
 
-#plot_sekcia = rozdelovac()
+plot_sekcia = rozdelovac()
 plot_twist = textovi_vstup("Plot twist", "niečo vimislíš")
 session_choice_bool("Plot twist session", "kedi sa stane/ú tvoj(e) plot twisti. Každé okienko je session z lava do prava.")
 dalsie_plani = textovi_vstup("Ďalšie Pláni", "Rôzne eventi, situacie alebo miesta ktore sa mozu obiavit v kampani")
@@ -163,6 +168,7 @@ def konvertovat_data():
     return konvertovane
 
 
+global file_path
 file_path = ""
 
 def save():
