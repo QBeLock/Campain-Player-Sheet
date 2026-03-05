@@ -52,17 +52,22 @@ def CreateToolTip(widget, text):
 
 class zakladni_riadok(ABC):
     riadky = []
+    momentalni_riadok = 0
     defauld_font = tkFont.Font(size=10)
-    def __init__(self, nazov, tooltip, grid_velkost = 0,font=defauld_font):
+    def __init__(self, nazov, tooltip, grid_velkost = 0,font=defauld_font, id = NULL):
         zakladni_riadok.riadky.append(self)
-        self.nazov = nazov
+        if id == NULL:
+            self.nazov = nazov
+        else:
+            self.nazov = id
         self.lbl = tk.Label(root, text=nazov,font=font)
-        self.lbl.grid(row=len(zakladni_riadok.riadky) - 1, column=0, pady=(0,grid_velkost))
+        self.lbl.grid(row=zakladni_riadok.momentalni_riadok, column=0, pady=(0,grid_velkost))
         CreateToolTip(self.lbl, tooltip)
         self._grid_velkost = grid_velkost
 
     def _init_end(self):
-        self.okno.grid(row=len(zakladni_riadok.riadky) - 1, column=1, pady=(0,self._grid_velkost))
+        self.okno.grid(row=zakladni_riadok.momentalni_riadok, column=1, pady=(0,self._grid_velkost))
+        zakladni_riadok.momentalni_riadok += 1
 
     @abstractmethod
     def get(self):
@@ -163,13 +168,13 @@ class rozdelovac(zakladni_riadok):
 meno = riadkovi_vstup("Meno","Tvoje meno debil")
 
 postavi_sekcia = rozdelovac()
-meno_postavi = riadkovi_vstup("Meno Postavu", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu")
+meno_postavi = riadkovi_vstup("Meno Postavi", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu")
 podstatne_pre_postavu = textovi_vstup("Podstatne Pre Postavu","Načom tvojej postave záleží. niečo čo ked sa stane tak na to bude reagovať.")
 
 plot_sekcia = rozdelovac()
-plot_twist = riadkovi_vstup("Plot twist", "niečo vimislíš")
+plot_twist = textovi_vstup("Plot twist", "niečo vimislíš")
 session_choice_bool("Plot twist session", "kedi sa stane/ú tvoj(e) plot twisti. Každé okienko je session z lava do prava.")
-dalsie_plani = riadkovi_vstup("Ďalšie Pláni", "Rôzne eventi, situacie alebo miesta ktore sa mozu obiavit v kampani")
+dalsie_plani = textovi_vstup("Ďalšie Pláni", "Rôzne eventi, situacie alebo miesta ktore sa mozu obiavit v kampani")
 session_choice_int("Minor eventi", "kedi sa stanú predom pripravené veci ktoré si vimislel ale len na velmi kráatko napr: najdeme zbran.\n Každé okienko je session z lava do prava napíš tam kolko sa ich má stať za daní session.")
 session_choice_bool("Major eventi", "Rovnako ako minor eventi ale tieto môžu zabrať aj pol sessionu")
 
@@ -180,6 +185,7 @@ def konvertovat_data():
     for i in zakladni_riadok.riadky:
         if i.get():
             konvertovane.update({i.nazov: i.get()})
+        konvertovane.update({"verzia_ukladania": 1})
     return konvertovane
 
 
@@ -197,7 +203,7 @@ def save():
 
 def save_as():
     try:
-        file_path = filedialog.asksaveasfilename(title="Save as", filetypes=[("JSON", ('*.json'))], defaultextension=".json", initialfile=zakladni_riadok.riadky[0].get()+" sheet")
+        file_path = filedialog.asksaveasfilename(title="Save as", filetypes=[("CPS",("*.cps")),("JSON", ('*.json'))], defaultextension=".json", initialfile=zakladni_riadok.riadky[0].get()+" sheet")
         with open(file_path, "w") as json_file:
             json_file.write(json.dumps(konvertovat_data()))
             json_file.close()
@@ -206,14 +212,15 @@ def save_as():
         pass
 
 def load():
-    file_path = filedialog.askopenfilename(title="Load", filetypes=[("JSON", ('*.json')),("All files", "*.*")], defaultextension=".json")
+    file_path = filedialog.askopenfilename(title="Load", filetypes=[("CPS",("*.cps")),("JSON", ('*.json')),("All files", "*.*")], defaultextension=".json")
     with open(file_path) as json_file:
         json_dir = json.loads(json_file.read())
         for i in zakladni_riadok.riadky:
             try:
                 i.set(json_dir[i.nazov])
             except KeyError:
-                pass
+                if (not "verzia_ukladania" in json_dir) and i.nazov == "Podstatne Pre Postavu":
+                    i.set(json_dir["Podstatne Pre Postavi"]) #zmenil som nazov abi som opravil chibu toto umoznuje loadovat stare savi
         json_file.close()
         print(file_path)
 
