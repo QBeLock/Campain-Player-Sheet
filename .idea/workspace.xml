@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d0b6926-2a55-467b-ab1d-e04c75385fbc" name="Changes" comment="gunguje">
+    <list default="true" id="1d0b6926-2a55-467b-ab1d-e04c75385fbc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player sheet maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player sheet maker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/Analysis-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/EXE-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/PKG-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/Player sheet maker.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/Player sheet maker.pkg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/base_library.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Player sheet maker/warn-Player sheet maker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/Player sheet maker/warn-Player sheet maker.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Player sheet maker.exe" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Player sheet maker.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +20,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "QBeLock"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;QBeLock&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/QBeLock/Campain-Player-Sheet.git",
-    "accountId": "26de83ec-52a4-433e-aca2-a294a3ab527c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/QBeLock/Campain-Player-Sheet.git&quot;,
+    &quot;accountId&quot;: &quot;26de83ec-52a4-433e-aca2-a294a3ab527c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -47,17 +40,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.Player sheet maker.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Player sheet maker.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -137,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772550539702</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="rozdelovace z custom velkostov">
+      <option name="closed" value="true" />
+      <created>1772619858968</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1772619858968</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -149,6 +150,7 @@
     <MESSAGE value="tooltip" />
     <MESSAGE value="rozdelovac" />
     <MESSAGE value="gunguje" />
-    <option name="LAST_COMMIT_MESSAGE" value="gunguje" />
+    <MESSAGE value="rozdelovace z custom velkostov" />
+    <option name="LAST_COMMIT_MESSAGE" value="rozdelovace z custom velkostov" />
   </component>
 </project>

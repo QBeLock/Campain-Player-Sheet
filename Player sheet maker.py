@@ -72,7 +72,7 @@ class zakladni_riadok(ABC):
     def set(self, value):
         pass
 
-class textovi_vstup(zakladni_riadok):
+class riadkovi_vstup(zakladni_riadok):
 
 
     def __init__(self, nazov, tooltip, grid_velkost = 0):
@@ -87,6 +87,21 @@ class textovi_vstup(zakladni_riadok):
     def set(self, value):
         self._data.set(value)
 
+class textovi_vstup(zakladni_riadok):
+
+
+    def __init__(self, nazov, tooltip, grid_velkost = 0):
+        super().__init__(nazov,tooltip,grid_velkost)
+        self._data = tk.StringVar()
+        self.okno = tk.Text(root, width=37, height=3)
+        self._init_end()
+
+    def get(self):
+        return self.okno.get("1.0", "end-1c")
+
+    def set(self, value):
+        self.okno.delete(0.0, tk.END)
+        self.okno.insert("1.0", value)
 
 
 class session_choice_base(zakladni_riadok, ABC):
@@ -145,16 +160,16 @@ class rozdelovac(zakladni_riadok):
 
 
 
-meno = textovi_vstup("Meno","Tvoje meno debil")
+meno = riadkovi_vstup("Meno","Tvoje meno debil")
 
 postavi_sekcia = rozdelovac()
-meno_postavi = textovi_vstup("Meno Postavi", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu")
-podstatne_pre_postavu = textovi_vstup("Podstatne Pre Postavi","Načom tvojej postave záleží. niečo čo ked sa stane tak na to bude reagovať.")
+meno_postavi = riadkovi_vstup("Meno Postavu", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu")
+podstatne_pre_postavu = textovi_vstup("Podstatne Pre Postavu","Načom tvojej postave záleží. niečo čo ked sa stane tak na to bude reagovať.")
 
 plot_sekcia = rozdelovac()
-plot_twist = textovi_vstup("Plot twist", "niečo vimislíš")
+plot_twist = riadkovi_vstup("Plot twist", "niečo vimislíš")
 session_choice_bool("Plot twist session", "kedi sa stane/ú tvoj(e) plot twisti. Každé okienko je session z lava do prava.")
-dalsie_plani = textovi_vstup("Ďalšie Pláni", "Rôzne eventi, situacie alebo miesta ktore sa mozu obiavit v kampani")
+dalsie_plani = riadkovi_vstup("Ďalšie Pláni", "Rôzne eventi, situacie alebo miesta ktore sa mozu obiavit v kampani")
 session_choice_int("Minor eventi", "kedi sa stanú predom pripravené veci ktoré si vimislel ale len na velmi kráatko napr: najdeme zbran.\n Každé okienko je session z lava do prava napíš tam kolko sa ich má stať za daní session.")
 session_choice_bool("Major eventi", "Rovnako ako minor eventi ale tieto môžu zabrať aj pol sessionu")
 
