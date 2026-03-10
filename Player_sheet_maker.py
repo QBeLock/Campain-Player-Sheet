@@ -80,8 +80,8 @@ class zakladni_riadok(ABC):
 class riadkovi_vstup(zakladni_riadok):
 
 
-    def __init__(self, nazov, tooltip, grid_velkost = 0):
-        super().__init__(nazov,tooltip,grid_velkost)
+    def __init__(self, nazov, tooltip, grid_velkost = 0, id=NULL):
+        super().__init__(nazov,tooltip,grid_velkost,id=id)
         self._data = tk.StringVar()
         self.okno = tk.Entry(root, textvariable=self._data, width=50)
         self._init_end()
@@ -90,13 +90,14 @@ class riadkovi_vstup(zakladni_riadok):
         return self._data.get()
 
     def set(self, value):
+        if value == NULL: return
         self._data.set(value)
 
 class textovi_vstup(zakladni_riadok):
 
 
-    def __init__(self, nazov, tooltip, grid_velkost = 0):
-        super().__init__(nazov,tooltip,grid_velkost)
+    def __init__(self, nazov, tooltip, grid_velkost = 0, id=NULL):
+        super().__init__(nazov,tooltip,grid_velkost,id=id)
         self._data = tk.StringVar()
         self.okno = tk.Text(root, width=37, height=3)
         self._init_end()
@@ -105,6 +106,7 @@ class textovi_vstup(zakladni_riadok):
         return self.okno.get("1.0", "end-1c")
 
     def set(self, value):
+        if value == NULL: return
         self.okno.delete(0.0, tk.END)
         self.okno.insert("1.0", value)
 
@@ -115,8 +117,8 @@ class session_choice_base(zakladni_riadok, ABC):
     def create_session(self, session_id):
         pass
 
-    def __init__(self, nazov, tooltip, grid_velkost=0):
-        super().__init__(nazov,tooltip,grid_velkost)
+    def __init__(self, nazov, tooltip, grid_velkost=0, id=NULL):
+        super().__init__(nazov,tooltip,grid_velkost,id=id)
         self._data = []
         self.session = []
         self.session_input = []
@@ -134,6 +136,7 @@ class session_choice_base(zakladni_riadok, ABC):
         return konvertovane
 
     def set(self, value):
+        if value == NULL: return
         for i in range(3):
             self.session[i].set(value[i])
 
@@ -169,7 +172,10 @@ meno = riadkovi_vstup("Meno","Tvoje meno debil")
 
 postavi_sekcia = rozdelovac()
 meno_postavi = riadkovi_vstup("Meno Postavi", "daj dáke cool meno nemusíš nam ho potom ani povedať podla roleplayu")
+rasa = riadkovi_vstup("Rasa", "dufam nie elf")
 podstatne_pre_postavu = textovi_vstup("Podstatne Pre Postavu","Načom tvojej postave záleží. niečo čo ked sa stane tak na to bude reagovať.")
+vstahi = textovi_vstup("Vsťahi", "Kiko tovoja postava pozná")
+minulost = textovi_vstup("Minulosť", "co sa stalo ze je tvoja postava v tomto bode")
 
 plot_sekcia = rozdelovac()
 plot_twist = textovi_vstup("Plot twist", "niečo vimislíš")
@@ -189,7 +195,7 @@ def konvertovat_data():
     return konvertovane
 
 
-global file_path
+
 file_path = ""
 
 def save():
@@ -221,6 +227,8 @@ def load():
             except KeyError:
                 if (not "verzia_ukladania" in json_dir) and i.nazov == "Podstatne Pre Postavu":
                     i.set(json_dir["Podstatne Pre Postavi"]) #zmenil som nazov abi som opravil chibu toto umoznuje loadovat stare savi
+                else:
+                    i.set(NULL)
         json_file.close()
         print(file_path)
 
@@ -233,3 +241,4 @@ save_as_btn.grid(row=7, column=2)
 
 
 root.mainloop()
+#pyinstaller --onefile -w Player_sheet_maker.py

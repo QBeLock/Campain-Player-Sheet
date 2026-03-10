@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d0b6926-2a55-467b-ab1d-e04c75385fbc" name="Changes" comment="pôvodni textovi_vstup premenovani na riadnkovi vstup novi texstovi vstu pousiva tk.text">
+    <list default="true" id="1d0b6926-2a55-467b-ab1d-e04c75385fbc" name="Changes" comment=".cps format pridani abi subori boli na discorde privatne">
+      <change afterPath="$PROJECT_DIR$/Campain sheet manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player sheet maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player_sheet_maker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player_sheet_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player_sheet_maker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +44,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.Campain sheet manager.executor": "Run",
     "Python.Player sheet maker.executor": "Run",
     "Python.Player_sheet_maker.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -147,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772721427024</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary=".cps format pridani abi subori boli na discorde privatne">
+      <option name="closed" value="true" />
+      <created>1772731142449</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1772731142449</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,6 +171,7 @@
     <MESSAGE value="gunguje" />
     <MESSAGE value="rozdelovace z custom velkostov" />
     <MESSAGE value="pôvodni textovi_vstup premenovani na riadnkovi vstup novi texstovi vstu pousiva tk.text" />
-    <option name="LAST_COMMIT_MESSAGE" value="pôvodni textovi_vstup premenovani na riadnkovi vstup novi texstovi vstu pousiva tk.text" />
+    <MESSAGE value=".cps format pridani abi subori boli na discorde privatne" />
+    <option name="LAST_COMMIT_MESSAGE" value=".cps format pridani abi subori boli na discorde privatne" />
   </component>
 </project>
