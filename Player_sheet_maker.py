@@ -9,7 +9,7 @@ from pefile import sizeof_type
 
 root = tk.Tk()
 root.title("Player sheet maker")
-
+sirka = 50
 
 class ToolTip(object):
 
@@ -83,7 +83,7 @@ class riadkovi_vstup(zakladni_riadok):
     def __init__(self, nazov, tooltip, grid_velkost = 0, id=NULL):
         super().__init__(nazov,tooltip,grid_velkost,id=id)
         self._data = tk.StringVar()
-        self.okno = tk.Entry(root, textvariable=self._data, width=50)
+        self.okno = tk.Entry(root, textvariable=self._data, width=100)
         self._init_end()
 
     def get(self):
@@ -99,7 +99,7 @@ class textovi_vstup(zakladni_riadok):
     def __init__(self, nazov, tooltip, grid_velkost = 0, id=NULL):
         super().__init__(nazov,tooltip,grid_velkost,id=id)
         self._data = tk.StringVar()
-        self.okno = tk.Text(root, width=37, height=3)
+        self.okno = tk.Text(root, width=75, height=5)
         self._init_end()
 
     def get(self):
